@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biniyam Safayo | Premium Courses, Ebooks & Digital Systems</title>
+    <meta name="description" content="Premium courses, workbooks, and books for extraordinary achievement. Build agency, belief, discipline, and a life that finishes.">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --border: #27272a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Products Section */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .product-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(to bottom, rgba(245, 158, 11, 0.05), var(--bg-card));
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .product-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-type {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Curriculum Preview */
+        .curriculum {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .module-list {
+            display: grid;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .module-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-number {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .module-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Philosophy */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .philosophy-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .philosophy-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .philosophy-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">✦ Biniyam <span>Safayo</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://biniyamsafayo.gumroad.com/" class="btn">Get Access →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="badge">PREMIUM DIGITAL SYSTEMS · FIRST EDITION</div>
+        <h1>Build a Life That Finishes.<br>Master the Architecture of Achievement.</h1>
+        <p>Premium courses, workbooks, and books for people pursuing goals that demand more than motivation. Build agency, self-belief, discipline, and endurance—then turn what you learn into a practical, honest plan.</p>
+        <div class="hero-buttons">
+            <a href="#products" class="btn">View All Products →</a>
+            <a href="#curriculum" class="btn btn-outline">See What You’ll Build</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="section-header">
+            <h2>Choose Your Path</h2>
+            <p>Three integrated systems designed to dismantle fragmented habits and build an operating system for extraordinary achievement.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: The Extreme Path -->
+            <div class="product-card featured">
+                <div class="featured-badge">MOST POPULAR</div>
+                <div class="product-icon">🧠</div>
+                <div class="product-type">8-Week Premium Course</div>
+                <h3>The Extreme Path</h3>
+                <p>The psychology and practice of extraordinary achievement. Build an engine that runs without fuel, and create a complete written blueprint for one difficult goal.</p>
+                <ul class="product-features">
+                    <li>8 Comprehensive Modules</li>
+                    <li>Premium Standalone Workbook</li>
+                    <li>16-Section Extreme Goal Blueprint</li>
+                    <li>Lifetime Access & Updates</li>
+                </ul>
+                <div class="price">$49.90 <span>USD</span></div>
+                <!-- UPDATE LINK BELOW WITH YOUR SPECIFIC GUMROAD PRODUCT SLUG -->
+                <a href="https://biniyamsafayo.gumroad.com/" class="btn" style="width: 100%; text-align: center;">Get The Extreme Path →</a>
+            </div>
+
+            <!-- Product 2: The Inevitable Self -->
+            <div class="product-card">
+                <div class="product-icon">🧭</div>
+                <div class="product-type">5-Week Digital Course</div>
+                <h3>The Inevitable Self</h3>
+                <p>The systematic framework for aligning daily action with long-term growth. Install a living dashboard, master habit stacking, and architect your daily execution engine.</p>
+                <ul class="product-features">
+                    <li>5 Core Modules & Action Steps</li>
+                    <li>The Living Dashboard Template</li>
+                    <li>Deep Work & Failsafe Protocols</li>
+                    <li>Accelerated Skill-Building Framework</li>
+                </ul>
+                <div class="price">$43.90 <span>USD</span></div>
+                <!-- UPDATE LINK BELOW WITH YOUR SPECIFIC GUMROAD PRODUCT SLUG -->
+                <a href="https://biniyamsafayo.gumroad.com/" class="btn btn-outline" style="width: 100%; text-align: center;">Get The Inevitable Self →</a>
+            </div>
+
+            <!-- Product 3: The Architecture of the Inevitable -->
+            <div class="product-card">
+                <div class="product-icon">📖</div>
+                <div class="product-type">Comprehensive Ebook</div>
+                <h3>The Architecture of the Inevitable</h3>
+                <p>Why fragmented systems fail and how to build a life that finishes. The foundational text detailing the psychology, audits, and living dashboard philosophy.</p>
+                <ul class="product-features">
+                    <li>16 Detailed Chapters</li>
+                    <li>Friction Audits & Obstacle Protocols</li>
+                    <li>Identity Engineering & Habit Stacking</li>
+                    <li>Instant PDF Download</li>
+                </ul>
+                <div class="price">$35.00 <span>USD</span></div>
+                <!-- UPDATE LINK BELOW WITH YOUR SPECIFIC GUMROAD PRODUCT SLUG -->
+                <a href="https://biniyamsafayo.gumroad.com/" class="btn btn-outline" style="width: 100%; text-align: center;">Get the Ebook →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Preview (Flagship Course) -->
+    <section id="curriculum" class="section curriculum">
+        <div class="section-header">
+            <h2>The Extreme Path: Syllabus</h2>
+            <p>Eight modules. Eight builds. One honest blueprint. Every module follows one rhythm: read, write, run, close.</p>
+        </div>
+        <div class="module-list">
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 01</div>
+                    <div class="module-title">The Question of Control</div>
+                    <div class="module-desc">Free will, destiny, luck, and the taxonomy of the impossible.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 02</div>
+                    <div class="module-title">The Psychology of Possibility</div>
+                    <div class="module-desc">Belief as an operating system and the mechanisms of abandonment.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 03</div>
+                    <div class="module-title">The Architecture of the Inner Mind</div>
+                    <div class="module-desc">Subconscious conditioning, identity, and automaticity.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 04</div>
+                    <div class="module-title">The Craft of Self-Belief</div>
+                    <div class="module-desc">Evidence over slogans: building the Evidence Staircase.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 05</div>
+                    <div class="module-title">The Engine</div>
+                    <div class="module-desc">Motivation, willpower, discipline, and consistency systems.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 06</div>
+                    <div class="module-title">The Art of Endurance</div>
+                    <div class="module-desc">Navigating the boredom barrier, plateaus, and failure-to-data loops.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 07</div>
+                    <div class="module-title">Grace, Luck, and the Uncontrollable</div>
+                    <div class="module-desc">Honest hope, uneven starting lines, and effort without entitlement.</div>
+                </div>
+            </div>
+            <div class="module-item">
+                <div>
+                    <div class="module-number">MODULE 08</div>
+                    <div class="module-title">Integration & The Extreme Goal Blueprint</div>
+                    <div class="module-desc">Assembling the complete causal chain into a 16-section written plan.</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://biniyamsafayo.gumroad.com/" class="btn">Enroll & Start Module 01 →</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section">
+        <div class="section-header">
+            <h2>Built for Those Who Refuse to Lie to Themselves</h2>
+            <p>No toxic positivity. No "just believe in yourself" slogans. Just psychologically grounded, philosophically honest systems.</p>
+        </div>
+        <div class="philosophy-grid">
+            <div class="philosophy-card">
+                <h3>📝 The Exercises Are the Course</h3>
+                <p>The prose is only the instruction manual. You will write, build, and produce an artifact every module. Progress is measured in shipped work, not hours watched.</p>
+            </div>
+            <div class="philosophy-card">
+                <h3>🌱 Consistency Beats Intensity</h3>
+                <p>Small, repeated practice outperforms rare heroic sessions. The compounding happens between sessions. We build floors, not just ceilings.</p>
+            </div>
+            <div class="philosophy-card">
+                <h3>🔄 Keep the Why Fixed, the How Fluid</h3>
+                <p>Your goal stays constant; your methods stay revisable. We treat feedback as data: when something isn't working, we change the route, not the destination.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="section-header">
+            <h2>Questions, Answered Honestly</h2>
+        </div>
+        <div class="faq-item">
+            <h3>Is this just another motivation or "hustle" course?</h3>
+            <p>No. This explicitly rejects toxic positivity and the lie that suffering guarantees victory. It is a psychologically grounded system that names the science behind why beliefs fail, why discipline works, and why endurance survives.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the difference between the three products?</h3>
+            <p><strong>The Architecture of the Inevitable</strong> ($35) is the foundational ebook explaining the philosophy. <strong>The Inevitable Self</strong> ($43.90) is a 5-week digital course focused on daily execution and the Living Dashboard. <strong>The Extreme Path</strong> ($49.90) is the flagship 8-week premium course covering the full spectrum from belief to endurance, culminating in the Extreme Goal Blueprint.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How much time do I need each week?</h3>
+            <p>For the courses, the designed cadence is 3–5 focused hours per week. You may move faster through reading, but you may not move faster through practice. The exercises and written artifacts are the course.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need to already be successful or highly disciplined?</h3>
+            <p>No. This is for anyone holding a goal that most people would call unreasonable, and who wants to pursue it with their eyes open. We start with the basics of control and belief, and build the engine from the ground up.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section" style="text-align: center; background: var(--bg-secondary); border-top: 1px solid var(--border); border-radius: 12px; margin-bottom: 4rem;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Begin?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Motivation is the weather. These systems build the house. Start with the question of control and build from the ground up.
+        </p>
+        <a href="https://biniyamsafayo.gumroad.com/" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">Get Instant Access to All Products →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="margin-bottom: 1.5rem; display: inline-block;">✦ Biniyam <span>Safayo</span></div>
+            <div class="footer-links">
+                <a href="#home">Overview</a>
+                <a href="#products">All Products</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#philosophy">Philosophy</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://biniyamsafayo.gumroad.com/">Gumroad Store</a>
+            </div>
+            <p class="copyright">© 2026 Biniyam Safayo. All rights reserved. Built with honesty, evidence, and discipline.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
